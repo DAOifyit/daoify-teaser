@@ -4,6 +4,7 @@ import Head from 'next/head';
 import createGlobe from 'cobe';
 import { useEffect, useRef } from 'react';
 import Button from '@/components/button/button';
+import Image from 'next/image';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -57,7 +58,12 @@ export default function Home() {
       </Head>
 
       <nav className={styles.nav}>
-        {/* Logo */}
+        <Image
+          src="/icons/logo.svg"
+          alt='Daoify Logo'
+          height={50}
+          width={50}
+        />
 
         <Button>
           Join Waitlist
