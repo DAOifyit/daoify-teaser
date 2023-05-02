@@ -52,7 +52,7 @@ export default function Home() {
   useEffect(() => {
     const onKeyPress = (e: KeyboardEvent) => {
       if (e.metaKey && e.key === 'Enter') {
-        setOpen(true)
+        setOpen(true);
       }
     };
 
@@ -71,19 +71,12 @@ export default function Home() {
       </Head>
 
       <nav className={styles.nav}>
-        <Image
-          src="/icons/logo.svg"
-          alt='Daoify Logo'
-          height={50}
-          width={50}
-        />
+        <Image src="/icons/logo.svg" alt="Daoify Logo" height={50} width={50} />
 
-        <Button onClick={() => setOpen(true)}>
-          Join Waitlist
-        </Button>
+        <Button onClick={() => setOpen(true)}>Join Waitlist</Button>
       </nav>
 
-      <main className={`${styles.main}`}>
+      <main className={styles.main}>
         <canvas
           ref={canvasRef}
           style={{ width: 600, height: 600, maxWidth: '100%', aspectRatio: 1 }}

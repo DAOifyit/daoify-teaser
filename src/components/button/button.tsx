@@ -12,7 +12,11 @@ type Props = {
 
 const Button = ({ children, className, href, target, onClick }: Props) => {
   return href ? (
-    <Link href={href} target={target} className={`${styles.button} ${className ?? ''}`}>
+    <Link
+      href={href}
+      target={target}
+      className={`${styles.button} ${className ?? ''}`}
+    >
       {children}
     </Link>
   ) : (
@@ -20,6 +24,6 @@ const Button = ({ children, className, href, target, onClick }: Props) => {
       {children}
     </button>
   );
-}
+};
 
 export default Button;

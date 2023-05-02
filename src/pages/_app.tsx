@@ -8,11 +8,11 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
       <style jsx global>{`
-            html {
-              --font-base: ${inter.style.fontFamily};
-            }
-          `}</style>
-      <Component {...pageProps} />;
+        html {
+          --font-base: ${inter.style.fontFamily};
+        }
+      `}</style>
+      <Component {...pageProps} />
     </>
-  )
+  );
 }
