@@ -2,11 +2,14 @@ import styles from '@/styles/Home.module.scss';
 import { Inter } from 'next/font/google';
 import Head from 'next/head';
 import createGlobe from 'cobe';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Button from '@/components/button/button';
 import Image from 'next/image';
+import Dialog from '@/components/dialog/dialog';
 
 export default function Home() {
+  const [open, setOpen] = useState(false);
+
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   useEffect(() => {
@@ -46,6 +49,18 @@ export default function Home() {
     };
   }, []);
 
+  useEffect(() => {
+    const onKeyPress = (e: KeyboardEvent) => {
+      if (e.metaKey && e.key === 'Enter') {
+        setOpen(true)
+      }
+    };
+
+    window.addEventListener('keydown', onKeyPress);
+
+    return () => window.removeEventListener('keydown', onKeyPress);
+  }, []);
+
   return (
     <>
       <Head>
@@ -63,7 +78,7 @@ export default function Home() {
           width={50}
         />
 
-        <Button>
+        <Button onClick={() => setOpen(true)}>
           Join Waitlist
         </Button>
       </nav>
@@ -74,6 +89,8 @@ export default function Home() {
           style={{ width: 600, height: 600, maxWidth: '100%', aspectRatio: 1 }}
         />
       </main>
+
+      <Dialog open={open} onClose={() => setOpen(false)} />
     </>
   );
 }

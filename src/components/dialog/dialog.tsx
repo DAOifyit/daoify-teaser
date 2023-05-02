@@ -1,13 +1,26 @@
 import * as RadixDialog from '@radix-ui/react-dialog';
 import { Cross2Icon } from '@radix-ui/react-icons';
+import { useEffect } from 'react';
 
-export default function Dialog() {
+type Props = {
+  open: boolean;
+  onClose: () => void;
+};
+
+
+export default function Dialog({ open, onClose }: Props) {
+  useEffect(() => {
+    const onKeyPress = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onClose();
+    };
+
+    window.addEventListener('keydown', onKeyPress);
+
+    return () => window.removeEventListener('keydown', onKeyPress);
+  }, [onClose]);
 
   return (
-    <RadixDialog.Root>
-      <RadixDialog.Trigger asChild>
-        <button className="Button violet">Edit profile</button>
-      </RadixDialog.Trigger>
+    <RadixDialog.Root open={open}>
       <RadixDialog.Portal>
         <RadixDialog.Overlay className="DialogOverlay" />
         <RadixDialog.Content className="DialogContent">
