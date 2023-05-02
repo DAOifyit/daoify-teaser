@@ -6,8 +6,6 @@ import { useEffect, useRef } from 'react';
 import Button from '@/components/button/button';
 import Image from 'next/image';
 
-const inter = Inter({ subsets: ['latin'] });
-
 export default function Home() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
@@ -70,7 +68,7 @@ export default function Home() {
         </Button>
       </nav>
 
-      <main className={`${styles.main} ${inter.className}`}>
+      <main className={`${styles.main}`}>
         <canvas
           ref={canvasRef}
           style={{ width: 600, height: 600, maxWidth: '100%', aspectRatio: 1 }}
