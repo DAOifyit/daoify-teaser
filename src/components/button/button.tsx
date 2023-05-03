@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode, forwardRef } from 'react';
 import styles from './button.module.scss';
 import Link from 'next/link';
 
@@ -7,10 +7,18 @@ type Props = {
   className?: string;
   href?: string;
   target?: string;
+  disabled?: boolean;
   onClick?: () => void;
 };
 
-const Button = ({ children, className, href, target, onClick }: Props) => {
+const Button = ({
+  children,
+  className,
+  href,
+  target,
+  disabled,
+  onClick,
+}: Props) => {
   return href ? (
     <Link
       href={href}
@@ -20,7 +28,11 @@ const Button = ({ children, className, href, target, onClick }: Props) => {
       {children}
     </Link>
   ) : (
-    <button className={`${styles.button} ${className ?? ''}`} onClick={onClick}>
+    <button
+      className={`${styles.button} ${className ?? ''}`}
+      disabled={disabled}
+      onClick={onClick}
+    >
       {children}
     </button>
   );

@@ -83,7 +83,11 @@ export default function Home() {
         />
       </main>
 
-      <Dialog open={open} onClose={() => setOpen(false)} />
+      <Dialog
+        open={open}
+        onClose={() => setOpen(false)}
+        onSubmit={console.log}
+      />
     </>
   );
 }
