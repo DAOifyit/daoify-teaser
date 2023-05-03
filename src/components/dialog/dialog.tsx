@@ -26,6 +26,7 @@ export default function Dialog({ open, onClose }: Props) {
         <DialogRadix.Content className={styles.content}>
           {/* Logo */}
           <h3>Join Waitlist</h3>
+          <span>Join our growing waitlist and we will reach out to you as soon as possible.</span>
           <label>Email address</label>
           <input type="email" placeholder="Enter your mail" />
 
