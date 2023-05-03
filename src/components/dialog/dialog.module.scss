@@ -25,6 +25,27 @@
   animation: show-content 0.15s ease-in-out;
 }
 
+.header {
+  width: 100%;
+  text-align: center;
+  padding: 0 0 1em 0;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 0.375em;
+
+  input {
+    height: 2em;
+    border: 1px solid rgba(223, 239, 254, 1);
+    border-radius: 0.5em;
+    padding: 1em;
+    background: transparent;
+  }
+}
+
 @keyframes show-overlay {
   from {
     opacity: 0;
