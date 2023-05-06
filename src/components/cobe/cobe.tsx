@@ -7,7 +7,7 @@ export default function Cobe() {
 
   useEffect(() => {
     let phi = 0;
-    let width = 600;
+    let width = canvasRef.current!.offsetWidth;
     let globe: any;
 
     const onResize = () => canvasRef.current && (width = canvasRef.current.offsetWidth);
