@@ -1,7 +1,6 @@
-import { WidthIcon } from "@radix-ui/react-icons";
 import { useSpring } from "@react-spring/web";
 import createGlobe from "cobe";
-import { useRef, useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 export default function Cobe() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);

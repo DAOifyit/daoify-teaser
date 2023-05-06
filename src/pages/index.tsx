@@ -37,6 +37,20 @@ export default function Home() {
       </nav>
 
       <main className={styles.main}>
+        <div>
+          <h1>Latest Legal Wrapper for DAOs</h1>
+          <p>Lorem Impsum Lorem Impsum Lorem Impsum Lorem Impsum</p>
+
+          <div className={styles.cta} onClick={() => setOpen(true)}>
+            Press
+            <div className={styles.wrapper}>
+              <span className={styles.key}>⌘</span>
+              +
+              <span className={styles.key}>⏎</span>
+            </div>
+            for the waitlist
+          </div>
+        </div>
         <Cobe />
       </main>
 
