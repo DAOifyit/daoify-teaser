@@ -1,3 +1,4 @@
+import { WidthIcon } from "@radix-ui/react-icons";
 import createGlobe from "cobe";
 import { useRef, useEffect } from "react";
 
@@ -6,13 +7,18 @@ export default function Cobe() {
 
   useEffect(() => {
     let phi = 0;
+    let width = 600;
     let globe: any;
+
+    const onResize = () => canvasRef.current && (width = canvasRef.current.offsetWidth);
+
+    window.addEventListener('resize', onResize);
 
     if (canvasRef?.current) {
       globe = createGlobe(canvasRef.current, {
         devicePixelRatio: 2,
-        width: 600 * 2,
-        height: 600 * 2,
+        width: width * 2,
+        height: width * 2,
         phi: 0,
         theta: 0,
         dark: 1,
@@ -26,11 +32,16 @@ export default function Cobe() {
         onRender: state => {
           state.phi = phi;
           phi += 0.01;
+          state.width = width * 2
+          state.height = width * 2
         },
       });
+
+      setTimeout(() => canvasRef.current!.style.opacity = '1')
     }
 
     return () => {
+      window.removeEventListener('resize', onResize);
       globe.destroy();
     };
   }, []);
