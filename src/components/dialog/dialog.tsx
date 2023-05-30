@@ -14,7 +14,7 @@ type FormInput = {
 type Props = {
   open: boolean;
   onClose: () => void;
-  onSubmit: SubmitHandler<FormInput>;
+  onSubmit: () => void;
 };
 
 const schema = yup
@@ -65,13 +65,15 @@ export default function Dialog({ open, onClose, onSubmit }: Props) {
             </span>
           </div>
 
-          <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
+          {/* <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
             <label>Email address</label>
             <input {...register('email')} />
             <p>{errors.email?.message}</p>
-          </form>
+          </form> */}
 
-          <Button disabled={!isValid}>Join</Button>
+          <Button href="https://forms.gle/W8ihgALH6SeouDKF6" target="_blank">
+            Join
+          </Button>
         </DialogRadix.Content>
       </DialogRadix.Portal>
     </DialogRadix.Root>
