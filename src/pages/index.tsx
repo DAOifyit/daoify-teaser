@@ -44,8 +44,7 @@ export default function Home() {
           <div className={styles.cta} onClick={() => setOpen(true)}>
             Press
             <div className={styles.wrapper}>
-              <span className={styles.key}>⌘</span>
-              +
+              <span className={styles.key}>⌘</span>+
               <span className={styles.key}>⏎</span>
             </div>
             for the waitlist

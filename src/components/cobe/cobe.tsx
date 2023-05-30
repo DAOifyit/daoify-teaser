@@ -1,6 +1,6 @@
-import { useSpring } from "@react-spring/web";
-import createGlobe from "cobe";
-import { useEffect, useRef } from "react";
+import { useSpring } from '@react-spring/web';
+import createGlobe from 'cobe';
+import { useEffect, useRef } from 'react';
 
 export default function Cobe() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -22,7 +22,8 @@ export default function Cobe() {
     let width = canvasRef.current!.offsetWidth;
     let globe: any;
 
-    const onResize = () => canvasRef.current && (width = canvasRef.current.offsetWidth);
+    const onResize = () =>
+      canvasRef.current && (width = canvasRef.current.offsetWidth);
 
     window.addEventListener('resize', onResize);
 
@@ -43,15 +44,15 @@ export default function Cobe() {
         markers: [],
         onRender: state => {
           if (!pointerInteracting.current) {
-            phi += 0.005
+            phi += 0.005;
           }
-          state.phi = phi + r.get()
-          state.width = width * 2
-          state.height = width * 2
+          state.phi = phi + r.get();
+          state.width = width * 2;
+          state.height = width * 2;
         },
       });
 
-      setTimeout(() => canvasRef.current!.style.opacity = '1')
+      setTimeout(() => (canvasRef.current!.style.opacity = '1'));
     }
 
     return () => {
@@ -60,11 +61,10 @@ export default function Cobe() {
     };
   }, []);
 
-
   return (
     <canvas
       ref={canvasRef}
-      onPointerDown={(e) => {
+      onPointerDown={e => {
         pointerInteracting.current =
           e.clientX - pointerInteractionMovement.current;
         canvasRef.current!.style.cursor = 'grabbing';
@@ -77,7 +77,7 @@ export default function Cobe() {
         pointerInteracting.current = null;
         canvasRef.current!.style.cursor = 'grab';
       }}
-      onMouseMove={(e) => {
+      onMouseMove={e => {
         if (pointerInteracting.current !== null) {
           const delta = e.clientX - pointerInteracting.current;
           pointerInteractionMovement.current = delta;
@@ -86,7 +86,7 @@ export default function Cobe() {
           });
         }
       }}
-      onTouchMove={(e) => {
+      onTouchMove={e => {
         if (pointerInteracting.current !== null && e.touches[0]) {
           const delta = e.touches[0].clientX - pointerInteracting.current;
           pointerInteractionMovement.current = delta;
@@ -107,4 +107,4 @@ export default function Cobe() {
       }}
     />
   );
-};
+}

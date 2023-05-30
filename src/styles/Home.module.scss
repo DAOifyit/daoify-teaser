@@ -13,7 +13,7 @@
   grid-template-columns: 1fr 1fr;
   align-items: center;
   padding: 6rem 2rem;
-  
+
   @include mq($until: 750px) {
     display: flex;
     flex-direction: column;
@@ -39,7 +39,7 @@
   &:hover {
     opacity: 0.5;
   }
-} 
+}
 
 .key {
   display: inline-flex;
@@ -48,11 +48,11 @@
   user-select: none;
   align-items: center;
   justify-content: center;
-  border-radius: .25rem;
+  border-radius: 0.25rem;
   background-color: white;
   color: black;
   margin: 0 5px 0 0;
-  
+
   &:last-child {
     margin: 0 0 0 5px;
   }
